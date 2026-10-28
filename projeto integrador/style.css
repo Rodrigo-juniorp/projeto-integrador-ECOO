@@ -18,7 +18,7 @@ body {
 }
 a { color: inherit; text-decoration: none; }
 
-
+/* ---------- Celular (base) ---------- */
 header {
   display: flex; align-items: center; justify-content: space-between;
   background: #1f4a1c; padding: 10px 14px; border-radius: 0 0 18px 18px;
@@ -83,9 +83,9 @@ input {
 }
 :focus-visible { outline: 2px solid var(--verde); outline-offset: 2px; }
 
-
+/* ---------- Computador (a partir de 900px) ---------- */
 @media (min-width: 900px) {
-  
+  /* largura útil de 1100px centralizada, com o fundo ocupando a tela toda */
   header, .hero, .noticias, .chamada, footer {
     padding-left: max(32px, calc((100% - 1100px) / 2));
     padding-right: max(32px, calc((100% - 1100px) / 2));
@@ -130,7 +130,7 @@ input {
   .copy { font-size: 12px; margin-top: 32px; }
 }
 
-
+/* ===== Página CLIMA ===== */
 .titulo-pagina { display: flex; align-items: center; gap: 28px; padding: 28px 24px; }
 .titulo-pagina .selo { display: grid; place-items: center; width: 56px; height: 56px;
   border: 3px solid var(--verde); border-radius: 50%; color: var(--verde); font-size: 28px; }
@@ -153,6 +153,7 @@ input {
   background: #ddd; color: #222; border-radius: 50%; font-size: 11px; font-weight: 700; }
 .paginacao a.atual { background: #3d8a2a; color: #fff; }
 
+/* ===== Página LOGIN ===== */
 .login { min-height: 100vh; display: flex; flex-direction: column; align-items: center;
   padding: 24px 16px; background: linear-gradient(#0a2e0a, #052005); }
 .login-logo { display: flex; align-items: center; gap: 14px; font-size: 40px; font-weight: 700; margin: 24px 0; }
@@ -181,4 +182,71 @@ input {
   .item-clima p { font-size: 16px; text-align: left; }
   .item-clima .tag { font-size: 12px; }
   .paginacao a { min-width: 32px; height: 32px; font-size: 14px; }
+}
+
+
+/* ===== Página NOTÍCIAS ===== */
+.hero-noticias { background: linear-gradient(135deg, #0b2d10, #1d4a22 60%, #0f2a12); padding: 40px 28px 36px; }
+.hero-noticias h1 { font-size: 36px; }
+
+.grade-noticias { background: #064d0a; padding: 36px 20px 24px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px 18px; }
+.card-noticia { display: block; padding: 8px 8px 14px; border-radius: 6px;
+  background: linear-gradient(#1b3a1a, #0a2a0a); }
+.card-noticia .foto { height: 84px; border-radius: 14px; background-size: cover; background-position: center; }
+.card-noticia .tag { margin: 8px 0 6px; font-size: 9px; font-weight: 700;
+  background: #5aa83a; color: #fff; border: 0; }
+.card-noticia h3 { font-size: 13px; line-height: 1.25; }
+.foto.floresta { background: linear-gradient(#2f6b2a 55%, #4b8a3a 55%, #1d4a22); }
+.foto.arara { background: linear-gradient(135deg, #2f8a3a, #e8b800 55%, #1e5fc4); }
+.voltar-pagina { display: inline-block; font-size: 32px; padding: 16px 20px 28px; background: #064d0a; width: 100%; }
+
+@media (min-width: 900px) {
+  .hero-noticias { padding-top: 56px; padding-bottom: 48px; }
+  .hero-noticias h1 { font-size: 64px; }
+  .grade-noticias { grid-template-columns: repeat(4, 1fr); gap: 28px;
+    padding-top: 56px; padding-bottom: 56px; }
+  .card-noticia { padding: 12px 12px 20px; }
+  .card-noticia .foto { height: 160px; }
+  .card-noticia .tag { font-size: 12px; }
+  .card-noticia h3 { font-size: 18px; }
+  .card-noticia:hover { outline: 1px solid var(--verde); }
+}
+
+/* ===== Página SOBRE NÓS ===== */
+.hero-sobre { background: linear-gradient(135deg, #0b2d10, #1d4a22 60%, #0f2a12); padding: 40px 24px 32px; }
+.hero-sobre h1 { font-size: 36px; }
+.hero-sobre p { font-size: 13px; max-width: 420px; margin-top: 10px; }
+
+.secao { padding: 28px 16px; }
+.secao h2 { font-size: 22px; margin-bottom: 16px; }
+.secao h2 b { color: var(--verde); }
+
+.blocos { display: grid; gap: 16px; }
+.bloco { background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: 18px; }
+.bloco .icone { font-size: 28px; }
+.bloco h3 { color: var(--verde); margin: 8px 0 6px; font-size: 18px; }
+.bloco p { font-size: 13px; color: var(--suave); }
+
+.equipe { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.membro { text-align: center; background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: 16px 8px; }
+.membro .avatar { width: 64px; height: 64px; margin: 0 auto 8px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 28px; background: #2f6b25; border: 2px solid var(--verde); }
+.membro h3 { font-size: 14px; }
+.membro p { font-size: 11px; color: var(--suave); }
+
+@media (min-width: 900px) {
+  .hero-sobre, .secao { padding-left: max(32px, calc((100% - 1100px) / 2)); padding-right: max(32px, calc((100% - 1100px) / 2)); }
+  .hero-sobre { padding-top: 56px; padding-bottom: 48px; }
+  .hero-sobre h1 { font-size: 64px; }
+  .hero-sobre p { font-size: 18px; max-width: 620px; }
+  .secao { padding-top: 48px; padding-bottom: 24px; }
+  .secao h2 { font-size: 32px; }
+  .blocos { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .bloco { padding: 28px; }
+  .bloco p { font-size: 15px; }
+  .equipe { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .membro .avatar { width: 96px; height: 96px; font-size: 42px; }
+  .membro h3 { font-size: 18px; }
+  .membro p { font-size: 14px; }
 }
